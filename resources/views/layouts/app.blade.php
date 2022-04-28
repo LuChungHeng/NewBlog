@@ -35,7 +35,11 @@
                         <a class="nav-link active" href="#">Morgan CH-97</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link active" href="#">Logout</a>
+                        <form action="{{route('logout')}}" method="post">
+                            @csrf
+                            <button type="submit" class="nav-link active btn btn-link fw-bold">Logout</button>
+                        </form>
+
                     </li>
                 @endauth
 
