@@ -7,7 +7,7 @@
             <form action="{{route('register')}}" method="post">
                 @csrf
                 <div class="form-floating mb-4">
-                    <input type="text" name="name" id="name" class="form-control bg-secondary bg-opacity-10 @error('name') border border-danger border-1 @enderror" placeholder="Your name" value="">
+                    <input type="text" name="name" id="name" class="form-control bg-secondary bg-opacity-10 @error('name') border border-danger border-1 @enderror" placeholder="Your name" value="{{old('name')}}">
                     <label for="name">Your name</label>
                     @error('name')
                     <div class="text-danger mt-2 text-sm">
@@ -16,7 +16,7 @@
                     @enderror
                 </div>
                 <div class="form-floating mb-4">
-                    <input type="text" name="username" id="username" class="form-control bg-secondary bg-opacity-10 @error('username') border border-danger border-1 @enderror" placeholder="Username" value="">
+                    <input type="text" name="username" id="username" class="form-control bg-secondary bg-opacity-10 @error('username') border border-danger border-1 @enderror" placeholder="Username" value="{{old('username')}}">
                     <label for="username">Username</label>
                     @error('username')
                     <div class="text-danger mt-2 text-sm">
@@ -25,7 +25,7 @@
                     @enderror
                 </div>
                 <div class="form-floating mb-4">
-                    <input type="text" name="email" id="email" class="form-control bg-secondary bg-opacity-10 @error('email') border border-danger border-1 @enderror" placeholder="Your email" value="">
+                    <input type="text" name="email" id="email" class="form-control bg-secondary bg-opacity-10 @error('email') border border-danger border-1 @enderror" placeholder="Your email" value="{{old('email')}}">
                     <label for="email">Email</label>
                     @error('email')
                     <div class="text-danger mt-2 text-sm">

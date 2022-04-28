@@ -30,18 +30,23 @@
                 </li>
             </ul>
             <ul class="nav navbar-nav navbar-right">
-                <li class="nav-item">
-                    <a class="nav-link active" href="#">Morgan CH-97</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link active" href="#">Login</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link active" href="{{route('register')}}">Register</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link active" href="#">Logout</a>
-                </li>
+                @auth
+                    <li class="nav-item">
+                        <a class="nav-link active" href="#">Morgan CH-97</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="#">Logout</a>
+                    </li>
+                @endauth
+
+                @guest
+                    <li class="nav-item">
+                        <a class="nav-link active" href="{{route('login')}}">Login</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="{{route('register')}}">Register</a>
+                    </li>
+                @endguest
             </ul>
         </div>
     </div>
