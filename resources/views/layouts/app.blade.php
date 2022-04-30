@@ -23,19 +23,19 @@
                     <a class="nav-link active" href="#">Home</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link active" href="#">Dashboard</a>
+                    <a class="nav-link active" href="{{ route('dashbord') }}">Dashboard</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link active" href="#">Post</a>
+                    <a class="nav-link active" href="{{ route('posts') }}">Posts</a>
                 </li>
             </ul>
             <ul class="nav navbar-nav navbar-right">
                 @auth
                     <li class="nav-item">
-                        <a class="nav-link active" href="#">Morgan CH-97</a>
+                        <a class="nav-link active">{{ auth()->user()->name }}</a>
                     </li>
                     <li class="nav-item">
-                        <form action="{{route('logout')}}" method="post">
+                        <form action="{{ route('logout') }}" method="post">
                             @csrf
                             <button type="submit" class="nav-link active btn btn-link fw-bold">Logout</button>
                         </form>
@@ -45,10 +45,10 @@
 
                 @guest
                     <li class="nav-item">
-                        <a class="nav-link active" href="{{route('login')}}">Login</a>
+                        <a class="nav-link active" href="{{ route('login') }}">Login</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link active" href="{{route('register')}}">Register</a>
+                        <a class="nav-link active" href="{{ route('register') }}">Register</a>
                     </li>
                 @endguest
             </ul>
