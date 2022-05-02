@@ -2,7 +2,12 @@
 
 @section('content')
     <div class="container">
-        <div class="bg-white rounded-3">
+        <div class="col-12 p-4 mb-1">
+            <h1 class="text-dark fw-bolder">{{$user->name}}</h1>
+            <p>目前已經發表了: {{$posts->count()}} {{Str::plural('post', $posts->count())}}</p>
+        </div>
+
+        <div class="col-12 bg-white p-4 rounded-3">
             @if ($posts->count())
                 @foreach($posts as $post)
                     <x-post :post="$post"/>
@@ -12,5 +17,6 @@
                 <p>{{$user->name}} does not have any posts</p>
             @endif
         </div>
+
     </div>
 @endsection
