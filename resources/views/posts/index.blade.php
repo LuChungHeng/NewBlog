@@ -27,20 +27,32 @@
                         <span class="text-secondary text-sm">{{ $post->created_at->diffForHumans() }}</span>
                         <p class="mb-2">{{ $post->body }}</p>
                     </div>
-                    <div class="d-flex ">
-                        @if(!$post->likedBy(auth()->user()))
-                        <form action="{{ route('posts.likes', $post) }}" method="post" class="m-1">
-                            @csrf
-                            <button type="submit" class="btn btn-outline-primary">Like</button>
-                        </form>
-                        @else
-                        <form action="{{ route('posts.likes', $post) }}" method="post" class="m-1">
+                    <div>
+                        <form action="" method="post">
                             @csrf
                             @method('DELETE')
-                            <button type="submit" class="btn btn-outline-primary">Unlike</button>
+                            <button type="submit" class="btn btn-danger">Delete</button>
                         </form>
-                        @endif
-                        <span>{{ $post->likes->count() }}  {{Str::plural('like', $post->likes->count())}}</span>
+                    </div>
+                    <div class="d-flex">
+                        @auth
+                            @if(!$post->likedBy(auth()->user()))
+                                <form action="{{ route('posts.likes', $post) }}" method="post" style="width: 40px">
+                                    @csrf
+                                    <button type="submit" class="btn text-primary p-0 me-5">Like</button>
+                                </form>
+                            @else
+                                <form action="{{ route('posts.likes', $post) }}" method="post" style="width: 60px">
+                                    @csrf
+                                    @method('DELETE')
+                                    <a><button type="submit" class="btn text-primary p-0 me-5">Unlike</button></a>
+                                </form>
+                            @endif
+                        @endauth
+                        <div class="m-0">
+                            <span>{{ $post->likes->count() }}  {{Str::plural('like', $post->likes->count())}}</span>
+                        </div>
+
                     </div>
                 @endforeach
                     {{ $posts->links() }}
