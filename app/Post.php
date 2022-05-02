@@ -10,10 +10,12 @@ class Post extends Model
     protected $fillable =[
       'body',
     ];
+    //檢查是否有點Like
     public function likedBy(User $user)
     {
         return $this->likes->contains('user_id', $user->id);
     }
+
     public function user()
     {
         return $this->belongsTo(User::class);
