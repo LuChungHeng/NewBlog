@@ -4,7 +4,7 @@
     <div class="container">
         <div class="col-12 p-4 mb-1">
             <h1 class="text-dark fw-bolder">{{$user->name}}</h1>
-            <p>目前已經發表了: {{$posts->count()}} {{Str::plural('post', $posts->count())}}</p>
+            <p>Posted {{$posts->count()}} {{Str::plural('post', $posts->count())}} and recevied {{$user->receivedLikes->count()}} likes</p>
         </div>
 
         <div class="col-12 bg-white p-4 rounded-3">
